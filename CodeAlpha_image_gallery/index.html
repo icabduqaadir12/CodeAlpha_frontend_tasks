@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>My Image Gallery</h1>
+<div class="filters">
+    <button data-filter="all">All</button>
+    <button data-filter="nature">Nature</button>
+    <button data-filter="city">City</button>
+    <button data-filter="people">People</button>
+  </div>
+  <main class="gallery">
+    <section class="image" data-category="nature">
+      <img src="https://unsplash.it/400/300?image=101" alt="Gallery Image 1">
+    </section>
+    <section class="image" data-category="city">
+      <img src="https://unsplash.it/400/300?image=102" alt="Gallery Image 2">
+    </section>
+    <section class="image" data-category="people">
+      <img src="https://unsplash.it/400/300?image=103" alt="Gallery Image 3">
+    </section>
+
+     <section class="image" data-category="nature">
+      <img src="https://i.pinimg.com/1200x/10/86/02/108602c519c19e1d5e523f7f5c09e86b.jpg" alt="Gallery Image 1">
+    </section>
+    <section class="image" data-category="city">
+      <img src="https://unsplash.it/400/300?image=102" alt="Gallery Image 2">
+    </section>
+    <section class="image" data-category="people">
+      <img src="https://unsplash.it/400/300?image=103" alt="Gallery Image 3">
+    </section>
+
+     <section class="image" data-category="nature">
+      <img src="https://unsplash.it/400/300?image=101" alt="Gallery Image 1">
+    </section>
+    <section class="image" data-category="city">
+      <img src="https://unsplash.it/400/300?image=102" alt="Gallery Image 2">
+    </section>
+    <section class="image" data-category="people">
+      <img src="https://unsplash.it/400/300?image=103" alt="Gallery Image 3">
+    </section>
+    <!-- Add more images here -->
+  </main>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox hidden">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="" alt="Enlarged Image" />
+    <button class="prev">&lt;</button>
+    <button class="next">&gt;</button>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

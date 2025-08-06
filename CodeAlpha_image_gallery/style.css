@@ -1,0 +1,184 @@
+/* === Global Reset & Base Styles === */
+* , *::before , *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f6f7fb;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 2rem 0 1rem;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+/* === Utility === */
+.lightbox.hidden {
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* === Gallery Grid === */
+.gallery {
+  display: grid;
+  gap: 1rem;
+  width: min(90%, 1200px);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.image {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.image:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.image:hover img {
+  transform: scale(1.08);
+}
+
+.image:hover::after {
+  opacity: 1;
+}
+
+/* === Lightbox Overlay === */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 0.4s ease;
+}
+
+.lightbox.show {
+  display: flex;
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  padding: 0.2rem 0.8rem;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  transition: background 0.3s ease;
+}
+
+.lightbox button:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.lightbox .prev {
+  left: 2rem;
+}
+
+.lightbox .next {
+  right: 2rem;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.lightbox .close:hover {
+  transform: scale(1.1);
+}
+
+.filters {
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+
+.filters button {
+  background: #e0e0e0;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filters button:hover {
+  background: #ccc;
+}
+
+
+/* === Responsive Tweaks === */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .lightbox button {
+    font-size: 1.5rem;
+  }
+
+  .lightbox .close {
+    font-size: 2.2rem;
+  }
+}
