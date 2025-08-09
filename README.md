@@ -26,8 +26,6 @@ CodeAlpha_frontend_tasks/
     └── script.js
 ```
 
-*(Feel free to expand the repository with additional folders for new projects.)*
-
 
 ##  Tech Stack
 
